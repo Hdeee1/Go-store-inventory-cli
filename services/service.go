@@ -26,3 +26,20 @@ func ShowAllItems() {
 		}
 	}
 }
+
+func SearchItem() {
+	itemName := make(map[string]models.Product)
+	for _, item := range Products {
+		itemName[item.Name] = item
+	}
+
+	searchName := "Mouse"
+	data, find := itemName[searchName]
+
+	if find {
+		fmt.Printf("Find Product! Name: %s, Price: %v, Stock: %v", data.Name, data.Price, data.Stock)
+	} else {
+		fmt.Println("Sorry, item not found")
+	}
+
+}
