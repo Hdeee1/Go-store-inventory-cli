@@ -16,15 +16,15 @@ func ShowAllItems() {
 	}
 	Products = append(Products, products...)
 	
-	for _, item := range Products {
-		if item.Stock == 0 {
-			fmt.Printf("Product Name: %v, Price: %v, Stock: Sold Out \n", item.Name, item.Price)
-		} else if item.Stock > 5 {
-			fmt.Printf("Product Name: %v, Price: %v, Stock: Low Stock\n", item.Name, item.Price)
-		} else {
-			fmt.Printf("Product Name: %v, Price: %v, Stock: Available\n", item.Name, item.Price)
-		}
-	}
+	// for _, item := range Products {
+	// 	if item.Stock == 0 {
+	// 		fmt.Printf("Product Name: %v, Price: %v, Stock: Sold Out \n", item.Name, item.Price)
+	// 	} else if item.Stock > 5 {
+	// 		fmt.Printf("Product Name: %v, Price: %v, Stock: Low Stock\n", item.Name, item.Price)
+	// 	} else {
+	// 		fmt.Printf("Product Name: %v, Price: %v, Stock: Available\n", item.Name, item.Price)
+	// 	}
+	// }
 }
 
 func SearchItem() {
@@ -33,13 +33,15 @@ func SearchItem() {
 		itemName[item.Name] = item
 	}
 
-	searchName := "Mouse"
-	data, find := itemName[searchName]
+	var userInput string
+	fmt.Printf("Search item name: ")
+	fmt.Scanln(&userInput)
 
+	searchName := userInput
+	data, find := itemName[searchName]
 	if find {
-		fmt.Printf("Find Product! Name: %s, Price: %v, Stock: %v", data.Name, data.Price, data.Stock)
+		fmt.Printf("Find item, name: %s, price: %v, stock: %v \n", data.Name, data.Price, data.Stock)
 	} else {
 		fmt.Println("Sorry, item not found")
 	}
-
 }
