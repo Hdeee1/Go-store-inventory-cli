@@ -10,25 +10,36 @@ import (
 func main() {
 	services.InitData()
 	for {
-		var choice int
-		fmt.Println("1. Show All Items")
-		fmt.Println("2. Search Item")
-		fmt.Println("3. Quit")
-
-		fmt.Println("Chose options:")
-		fmt.Scanln(&choice)
+		displayMenu()
+		choice := getUserChoice()
 
 		switch choice {
 		case 1 :
 			services.ShowAllItems()
-			return
 		case 2:
 			services.SearchItem()
-			return
 		case 3:
 			os.Exit(0)
 		default:
-			fmt.Println("")
+			fmt.Println("Invalid choice, try again!")
 		}
+		fmt.Println()
 	}
+}
+
+func displayMenu() {
+	fmt.Println("1. Show All Items")
+	fmt.Println("2. Search Item")
+	fmt.Println("3. Quit")
+	fmt.Println("Chose options:")
+}
+
+func getUserChoice() int {
+	var choice int
+	_, err := fmt.Scanln(&choice)
+	if err != nil {
+		fmt.Scanln()
+		return -1
+	}
+	return choice
 }
