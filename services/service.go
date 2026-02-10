@@ -40,11 +40,16 @@ func getStockStatus(stock int) string {
 }
 
 func ShowAllItems() {
-	
 	for _, item := range Products {
 		status := getStockStatus(item.Stock)
 		fmt.Printf("Product Name: %v, Price: %v, Stock: %s\n", item.Name, item.Price, status)
 	}
+}
+
+func AddProduct() {
+	var newProduct models.Product
+
+	userInput := 
 }
 
 func SearchItem() {

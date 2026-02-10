@@ -19,6 +19,8 @@ func main() {
 		case 2:
 			services.SearchItem()
 		case 3:
+			services.AddProduct()
+		case 4:
 			os.Exit(0)
 		default:
 			fmt.Println("Invalid choice, try again!")
@@ -30,7 +32,8 @@ func main() {
 func displayMenu() {
 	fmt.Println("1. Show All Items")
 	fmt.Println("2. Search Item")
-	fmt.Println("3. Quit")
+	fmt.Println("3. Add Item")
+	fmt.Println("4. Quit")
 	fmt.Println("Chose options:")
 }
 
